@@ -24,4 +24,13 @@ class OligoUTest extends FunSuite with Matchers {
     val testOligo = Oligo("AGAGAGAGAG")
     testOligo.countCharacter('A') shouldBe 5
   }
+
+  test ("Oligo can find the SimpleOligoTemp"){
+    Oligo("A").SimpleOligoTemp shouldBe 2
+    Oligo("AT").SimpleOligoTemp shouldBe 4
+    Oligo("GC").SimpleOligoTemp shouldBe 8
+    Oligo("ATCG").SimpleOligoTemp shouldBe 12
+    Oligo("").SimpleOligoTemp shouldBe 0
+    Oligo(".1129").SimpleOligoTemp shouldBe 0
+  }
 }

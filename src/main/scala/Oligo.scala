@@ -3,6 +3,7 @@ case class Oligo (sequence:String) {
   val NumberOfT = countCharacter('T')
   val NumberOfG = countCharacter('G')
   val NumberOfC = countCharacter('C')
+  val SimpleOligoTemp = calculateSimpleOligoTemp()
 
   def isValid:Boolean = sequence.matches ("[atgcATGC]+")
 
@@ -10,5 +11,9 @@ case class Oligo (sequence:String) {
 
   def printOligoSummary () = {
     println(s"$sequence: A($NumberOfA), T($NumberOfT), G($NumberOfG), C($NumberOfC)")
+  }
+
+  def calculateSimpleOligoTemp () : Int = {
+    (NumberOfA + NumberOfT)*2 + (NumberOfC + NumberOfG)*4
   }
 }
